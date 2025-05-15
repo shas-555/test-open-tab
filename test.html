@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>別タブ表示テスト</title>
+<style>
+dd {
+  margin-bottom: 15px;
+}
+</style>
+</head>
+<body>
+  <dl>
+    <dt>test1:hrefにURL定義、targetに_blankで別タブ表示</dt>
+    <dd><a href="https://www.google.co.jp/?q=test1" target="_blank">テストリンク</a></dd>
+
+    <dt>test2:href="#"、addEventListener('click')でwindow.open(url. '_blank')を使って別タブ表示、preventDefaultでaタグイベントを抑止</dt>
+    <dd><a href="#" id="test2">テストリンク</a></dd>
+
+    <dt>test3:href未定義、addEventListener('click')でwindow.open(url. '_blank')を使って別タブ表示、preventDefaultでaタグイベントを抑止</dt>
+    <dd><a id="test3">テストリンク</a></dd>
+
+    <dt>test4:href="#"、$('#test4').on('click')でwindow.open(url. '_blank')を使って別タブ表示、preventDefaultでaタグイベントを抑止</dt>
+    <dd><a href="#" target="_blank" id="test4">テストリンク</a></dd>
+
+    <dt>test5:href未定義、$('#test5').on('click')でwindow.open(url. '_blank')を使って別タブ表示、preventDefaultでaタグイベントを抑止</dt>
+    <dd><a id="test5">テストリンク</a></dd>
+
+    <dt>test6:href="#"、$('document').on('click', '#test6')でwindow.open(url. '_blank')を使って別タブ表示、preventDefaultでaタグイベントを抑止</dt>
+    <dd><a href="#" target="_blank" id="test6">テストリンク</a></dd>
+
+    <dt>test7:href未定義、$('document').on('click', '#test7')でwindow.open(url. '_blank')を使って別タブ表示、preventDefaultでaタグイベントを抑止</dt>
+    <dd><a id="test7">テストリンク</a></dd>
+  </dl>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>
+  <script id="rendered-js">
+  document.addEventListener('DOMContentLoaded', function() {
+  
+    document.querySelector('#test2').addEventListener('click', function(e){
+      e.preventDefault();
+      window.open('https://www.google.co.jp/?q=test2', '_blank');
+    })
+  
+    document.querySelector('#test3').addEventListener('click', function(e){
+      e.preventDefault();
+      window.open('https://www.google.co.jp/?q=test3', '_blank');
+    })
+  
+    $('#test4').on('click', function(e){
+      e.preventDefault();
+      window.open('https://www.google.co.jp/?q=test4', '_blank');
+    })
+  
+    $('#test5').on('click', function(e){
+      e.preventDefault();
+      window.open('https://www.google.co.jp/?q=test5', '_blank');
+    })
+  
+    $(document).on('click', '#test6', function(e){
+      e.preventDefault();
+      window.open('https://www.google.co.jp/?q=test6', '_blank');
+    })
+  
+    $(document).on('click', '#test7', function(e){
+      e.preventDefault();
+      window.open('https://www.google.co.jp/?q=test7', '_blank');
+    })
+  })
+  </script>
+</body>
+</html>
