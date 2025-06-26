@@ -6,6 +6,7 @@
 <style>
 .box {
   display: flex;
+  margin-bottom: 20px;
 }
 .box > div{
   margin-left: 50px;
@@ -51,7 +52,12 @@
   width: 1000px;
   height: 1000px;
   background: linear-gradient(45deg, green, blue);
-}</style>
+  }
+
+  .test {
+    -webkit-overflow-scrolling: touch  
+  }
+</style>
 </head>
 <body>
   <div class="box">
@@ -64,6 +70,21 @@
     </div>
   
     <div class="scroll-xy">
+      <div></div>
+    </div>
+    
+  </div>
+  
+  <div class="box">
+    <div class="scroll-x test">
+      <div></div>
+    </div>
+  
+    <div class="scroll-y test">
+      <div></div>
+    </div>
+  
+    <div class="scroll-xy test">
       <div></div>
     </div>
     
